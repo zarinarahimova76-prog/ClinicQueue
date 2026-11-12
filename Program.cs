@@ -1,3 +1,4 @@
+using ClinicQueue.Middlewares;
 using ClinicQueue.Repositories;
 using ClinicQueue.Models;
 using Domain.Models;
@@ -10,6 +11,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
 var app = builder.Build();
+app.UseMiddleware<RequestMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
